@@ -11,6 +11,7 @@ panel1.Width(20).Height(40);
 ---
 
 Developed for WinForms
+
 Supports Console and WPF aswell
 
 ---
