@@ -9,8 +9,10 @@ panel1.Width(20).Height(40);
 ```
 
 ---
+
 Developed for WinForms
 Supports Console and WPF aswell
+
 ---
 
 Some features are missing or you found a bug? Message me on discord, every idea is welcome: Discord -> Fabian#3563 (Don't message me for fun!)
