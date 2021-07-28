@@ -210,9 +210,9 @@ namespace CNestLib
         }
 
         /** <summary>CNest Set background color of Control</summary> **/
-        public static Control BGColor(this Control ctrl, int r, int g, int b, int a = 255)
+        public static Control BGColor(this Control ctrl, int r, int g, int b)
         {
-            ctrl.BackColor = Color.FromArgb(a, r, g, b);
+            ctrl.BackColor = Color.FromArgb(r, g, b);
 
             return ctrl;
         }
@@ -220,11 +220,11 @@ namespace CNestLib
         /** <summary>CNest Set background color of Control</summary> **/
         public static Control BGColor(this Control ctrl, Color color)
         {
-            return ctrl.BGColor(color.A, color.R, color.G, color.B);
+            return ctrl.BGColor(color.R, color.G, color.B);
         }
 
         /** <summary>CNest Set background color of Control</summary> **/
-        public static Control BGColor(this Control ctrl, int c, int m, int y, int k, int a = 255)
+        public static Control BGColor(this Control ctrl, int c, int m, int y, int k)
         {
             int r, g, b;
 
@@ -232,7 +232,7 @@ namespace CNestLib
             g = Convert.ToInt32(255 * (1 - m) * (1 - k));
             b = Convert.ToInt32(255 * (1 - y) * (1 - k));
 
-            return ctrl.BGColor(r, g, b, a);
+            return ctrl.BGColor(r, g, b);
         }
 
         /** <summary>CNest Set background color of Control</summary> **/
@@ -257,9 +257,9 @@ namespace CNestLib
         }
 
         /** <summary>CNest Set foreground color of Control</summary> **/
-        public static Control FGColor(this Control ctrl, int r, int g, int b, int a = 255)
+        public static Control FGColor(this Control ctrl, int r, int g, int b)
         {
-            ctrl.ForeColor = Color.FromArgb(a, r, g, b);
+            ctrl.ForeColor = Color.FromArgb(r, g, b);
 
             return ctrl;
         }
@@ -267,11 +267,11 @@ namespace CNestLib
         /** <summary>CNest Set foreground color of Control</summary> **/
         public static Control FGColor(this Control ctrl, Color color)
         {
-            return ctrl.FGColor(color.A, color.R, color.G, color.B);
+            return ctrl.FGColor(color.R, color.G, color.B);
         }
 
         /** <summary>CNest Set foreground color of Control</summary> **/
-        public static Control FGColor(this Control ctrl, int c, int m, int y, int k, int a = 255)
+        public static Control FGColor(this Control ctrl, int c, int m, int y, int k)
         {
             int r, g, b;
 
@@ -279,7 +279,7 @@ namespace CNestLib
             g = Convert.ToInt32(255 * (1 - m) * (1 - k));
             b = Convert.ToInt32(255 * (1 - y) * (1 - k));
 
-            return ctrl.FGColor(r, g, b, a);
+            return ctrl.FGColor(r, g, b);
         }
 
         /** <summary>CNest Set foreground color of Control</summary> **/
@@ -748,6 +748,19 @@ namespace CNestLib
         public static Color Invert(this Color col)
         {
             return Color.FromArgb(col.ToArgb() ^ 0xffffff);
+        }
+
+        /** <summary>CNest Util: Returns the with the offset manipulated color</summary> **/
+        public static Color Manipulate(this Color col, int offset)
+        {
+            return Color.FromArgb(col.R + offset, col.G + offset, col.B + offset);
+        }
+
+        /** <summary>CNest Util: Returns the gray value of color</summary> **/
+        public static Color ConvertGray(this Color col)
+        {
+            int colorValue = (col.R + col.G + col.B) / 3;
+            return Color.FromArgb(colorValue, colorValue, colorValue);
         }
 
         // Array
